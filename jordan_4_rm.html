@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #d0d4D5;
+        }
+        h2 {
+            text-align: center;
+        }
+        
+
+        .complete {
+            display: grid;
+            grid-template-columns: 500px 500px;
+        }
+        .shoes{
+            margin-left: 100px;
+        }
+        .unit{
+            width: 70px;
+            border-color: #d0d4D4;
+            border-radius: 10px;
+            box-shadow: 2px 2px gray;
+        }
+        .num{
+            border-color: #d0d4D1;
+            box-shadow: 2px 2px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="nike.html" style="    text-decoration: none;
+    color: black; margin-left: 30px;
+    cursor: pointer;">HOME</a>
+    <h2>NIKE AIR JORDAN 1 MID</h2>
+    <div class="complete">
+        <div class="shoes">
+            <img src="jordan_1_mid.jpg" alt="pic" height="350px" width="auto">
+        </div>
+        <div>
+            <h3>Air Jordan 1 Mid<br>
+            Rs.12 795.00</h3>
+
+            <form action="get">
+                Units-:
+<select name="unit" class="unit" id="unit">
+    <option value="0">UNITS</option>
+    <option value="1">1 </option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<br>
+<br>
+<input type="button" class="num" value="TOTAL AMOUNT :-" onclick="total()">
+ <p id="amount" ></p>
+<br>
+<input style="margin-top: 10px;  border-color:#d0d4D1 ;
+            box-shadow: 2px 2px gray;  " type="button" onclick="location.href='qr.html'" value="BUY" >
+
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        var a = confirm("WOW! YOUR CHICE IS REALLY FANTASTIC")
+        function total(){
+
+var y = document.getElementById("unit")
+ var unit = y.value;
+ var z = document.getElementById("amount")
+ var t = unit*12795 ;
+z.innerHTML= "Rs." + t + ".00";
+        }
+    </script>
+</body>
+
+</html>
