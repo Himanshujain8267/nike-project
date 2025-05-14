@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #d0d4D5;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .complete {
+            display: grid;
+            grid-template-columns: 500px 500px;
+        }
+
+        .shoes {
+            margin-left: 100px;
+        }
+
+        .unit {
+            width: 70px;
+            border-color: #d0d4D4;
+            border-radius: 10px;
+            box-shadow: 2px 2px gray;
+        }
+
+        .num {
+            border-color: #d0d4D1;
+            box-shadow: 2px 2px gray;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .complete {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .shoes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        .unit, .color, #size {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .num {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .num:hover {
+            background-color: #0056b3;
+        }
+
+        #brownc, #blackc {
+            display: none;
+        }
+
+        #whitec {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #007BFF;
+            text-align: center;
+        }
+
+        .emi {
+            text-align: center;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            margin-left: 30px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="nike.html" style="text-decoration: none; color: black; margin-left: 30px; cursor: pointer;">HOME</a>
+    <h2>NIKE AIR JORDAN 1 RETRO</h2>
+    <div class="complete">
+        <div class="shoes">
+            <img src="jorden_1_retro.jpg" alt="red Jordan" height="350px" width="350px" id="redc" />
+            <img src="jorden_1_retro_brown.webp" alt="brown Jordan" height="350px" width="auto" id="brownc" />
+            <img src="jordan_1_low_black.webp" alt="black Jordan" height="350px" width="auto" id="blackc" />
+        </div>
+        <div>
+            <h3>Air Jordan Retro <br>Rs. 12,999.00</h3>
+
+            <form action="get">
+                <div onclick="color()">
+                    color-:
+                    <select name="color" id="color" class="color" onchange="color()">
+                        <option value="0">red</option>
+                        <option value="1">brown</option>
+                        <option value="2">black</option>
+                    </select>
+                    
+                </div>
+                <br />
+               <div class="size">
+                size-:
+<select name="size" id="size">
+<option value="0">SIZE</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+
+
+               </div>
+               <br>
+                Units-:
+                <select name="unit" class="unit" id="unit">
+                    <option value="0">UNITS</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br><br>
+                <input type="button" class="num" value="TOTAL AMOUNT :-" onclick="total()">
+                <p id="amount"></p>
+                <input type="button" class="num" value="SHOW EMI OF 12 MONTHS" onclick="showEMI()">
+                <p id="emi"></p>
+                <br>
+                <input style="margin-top: 10px; border-color:#d0d4D1; box-shadow: 2px 2px gray;" type="button" onclick="location.href='qr.html'" value="BUY">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var a = confirm("WOW! YOUR CHOICE IS REALLY FANTASTIC");
+
+        let totalAmount = 0;
+        const shoePrice = 12999; // Price of the shoe
+        function color() {
+            var selectedColor = document.getElementById("color").value;
+        
+            var redImg = document.getElementById("redc");
+            var brownImg = document.getElementById("brownc");
+            var blackImg = document.getElementById("blackc");
+        
+            if (selectedColor === "0") {
+                redImg.style.display = "block";
+                brownImg.style.display = "none";
+                blackImg.style.display = "none";
+            } else if (selectedColor === "1") {
+                redImg.style.display = "none";
+                brownImg.style.display = "block";
+                blackImg.style.display = "none";
+            } else if(selectedColor === "2"){ 
+                redImg.style.display = "none";
+                brownImg.style.display = "none";
+                blackImg.style.display = "block";
+        }
+        else{ 
+            whiteImg.style.display = "none";
+            brownImg.style.display = "none";
+            blackImg.style.display = "none";
+        }
+        }
+        function total() {
+            var y = document.getElementById("unit");
+            var unit = parseInt(y.value, 10);
+            var z = document.getElementById("amount");
+            var emiDisplay = document.getElementById("emi");
+
+            if (unit === 0) {
+                z.innerHTML = "Please select units.";
+                emiDisplay.innerHTML = "";
+                totalAmount = 0;
+                return;
+            }
+
+            totalAmount = unit * shoePrice;
+            z.innerHTML = "Rs. " + totalAmount.toLocaleString() + ".00";
+            emiDisplay.innerHTML = ""; // Clear EMI on new total calculation
+        }
+
+        function showEMI() {
+            var emiDisplay = document.getElementById("emi");
+            if (totalAmount > 0) {
+                var emi = totalAmount / 12; // Calculate EMI for 12 months
+                emiDisplay.innerHTML = "EMI for 12 months: Rs. " + emi.toFixed(2);
+            } else {
+                emiDisplay.innerHTML = "Please select units and calculate total amount first.";
+            }
+        }
+    </script>
+</body>
+
+</html>
